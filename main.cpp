@@ -17,19 +17,19 @@ public:
     int get_m_strength() const {
         return m_strength;
     }
+
+    bool fight (Tool tmp_tool) {
+        if (tmp_tool.get_m_strength() < m_strength) {
+            return true;
+        } else return false;
+    }
 };
 
-class Rock : public Tool{
+class Rock : public Tool {
 public:
     Rock(int strength, char type, int r_strength, char r_type = 'r') : Tool(strength, type) {
         m_strength = r_strength;
         m_type = r_type;
-    }
-
-    bool fight (Tool tmp_tool){
-        if (tmp_tool.get_m_strength() < m_strength){
-            return true;
-        } else return false;
     }
 };
 
@@ -39,11 +39,6 @@ public:
         m_strength = p_strength;
         m_type = p_type;
     }
-    bool fight (Tool tmp_tool){
-        if (tmp_tool.get_m_strength() < m_strength){
-            return true;
-        } else return false;
-    }
 };
 
 class Scissors : public Tool{
@@ -52,15 +47,7 @@ public:
         m_strength = s_strength;
         m_type = s_type;
     }
-
-    bool fight (Tool tmp_tool){
-        if (tmp_tool.get_m_strength() < m_strength){
-            return true;
-        } else return false;
-    }
 };
-
-
 
 int main() {
     Scissors s1(0, 0, 5);
